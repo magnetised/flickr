@@ -457,6 +457,10 @@ class Flickr
       @notes.nil? ? getInfo("notes") : @notes
     end
 
+    def date_uploaded
+      d = @dateuploaded.nil? ? getInfo("dateuploaded") : @dateuploaded
+      Time.at(d.to_i)
+    end
     # Returns the URL for the photo size page
     # defaults to 'Medium'
     # other valid sizes are in the VALID_SIZES hash
