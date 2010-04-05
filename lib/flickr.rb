@@ -62,7 +62,8 @@ class Flickr
                   "Thumbnail" => ["t", "t"],
                   "Small" => ["m", "s"],
                   "Medium" => [nil, "m"],
-                  "Large" => ["b", "l"]
+                  "Large" => ["b", "l"],
+                  "Original" => ["o", "o"]
                 }
 
   # To use the Flickr API you need an api key 
@@ -622,9 +623,9 @@ class Flickr
         s_size = VALID_SIZES[normalize_size(size)] # get the short letters array corresponding to the size
         s_size = s_size&&s_size[0] # the first element of this array is used to build the source uri
         if s_size.nil?
-          "http://farm#{@farm}.static.flickr.com/#{@server}/#{@id}_#{@secret}.jpg"
+          "http://farm#{@farm}.static.flickr.com/#{@server}/#{@id}_#{@secret}_d.jpg"
         else
-          "http://farm#{@farm}.static.flickr.com/#{@server}/#{@id}_#{@secret}_#{s_size}.jpg"
+          "http://farm#{@farm}.static.flickr.com/#{@server}/#{@id}_#{@secret}_#{s_size}_d.jpg"
         end
       end
       
